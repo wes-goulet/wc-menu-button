@@ -1,0 +1,53 @@
+{
+  "name": "wc-menu-button",
+  "version": "2.1.1",
+  "description": "A simple side drawer element with no dependencies and small as possible",
+  "keywords": [
+    "web component",
+    "hamburger",
+    "menu",
+    "drawer",
+    "wc-menu-button",
+    "app drawer",
+    "animating",
+    "web-component",
+    "custom-element"
+  ],
+  "module": "dist/esm/wc-menu-button.js",
+  "main": "dist/esm/wc-menu-button.js",
+  "source": "lib/wc-menu-button.ts",
+  "types": "dist/esm/wc-menu-button.d.ts",
+  "scripts": {
+    "build": "rollup -c && cp ./dist/esm/wc-menu-button.js ./example/wc-menu-button.esm.js && cp ./dist/iife/wc-menu-button.js ./example/wc-menu-button.iife.js",
+    "rollup-watch": "rollup -c --watch",
+    "serve": "live-server ./example",
+    "copy-watch-esm": "onchange -v \"dist/esm/wc-menu-button.js\" -- cp ./dist/esm/wc-menu-button.js ./example/wc-menu-button.esm.js",
+    "copy-watch-iife": "onchange -v \"dist/iife/wc-menu-button.js\" -- cp ./dist/iife/wc-menu-button.js ./example/wc-menu-button.iife.js",
+    "start": "npm-run-all --parallel rollup-watch serve copy-watch-esm copy-watch-iife",
+    "clean": "rm -rf dist",
+    "prepare": "npm run build",
+    "gzip-check": "npx gzip-size-cli dist/esm/wc-menu-button.min.js"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.4.5",
+    "live-server": "^1.2.1",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^5.2.0",
+    "rollup": "^1.1.0",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-string": "^2.0.2",
+    "rollup-plugin-terser": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.19.0",
+    "typescript": "^3.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wes566/wc-menu-button"
+  },
+  "author": "Wes Peter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wes566/wc-menu-button"
+  },
+  "homepage": "https://github.com/wes566/wc-menu-button"
+}
