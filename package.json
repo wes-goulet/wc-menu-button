@@ -1,17 +1,13 @@
 {
   "name": "wc-menu-button",
-  "version": "2.1.1",
-  "description": "A simple side drawer element with no dependencies and small as possible",
+  "version": "3.0.0",
+  "description": "A simple, animating menu button built as a Web Component",
   "keywords": [
     "web component",
     "hamburger",
     "menu",
-    "drawer",
-    "wc-menu-button",
-    "app drawer",
     "animating",
-    "web-component",
-    "custom-element"
+    "web-component"
   ],
   "module": "dist/esm/wc-menu-button.js",
   "main": "dist/esm/wc-menu-button.js",

@@ -52,51 +52,46 @@ This web component uses [HTML templates](https://caniuse.com/#feat=template), th
 ### Attributes/Properties
 
 - `open`
-  - Add this attribute to open the drawer.
+  - Add this attribute to put the menu button in the "open" state.
     - Example: `<wc-menu-button open></wc-menu-button>`
-  - In (p)react you might need to set undefined in your JSX when you want the drawer closed.
-    - Example: `<wc-menu-button open={this.state.isDrawerOpen || undefined}></wc-menu-button>`
   - Set the property in Javascript to imperatively toggle the drawer
     - Example: `drawer.open = true`
-  - In (p)react you might need to set undefined in your JSX
-    - Example: `<wc-menu-button open={this.state.isDrawerOpen || undefined}></wc-menu-button>`
+  - In (p)react you might need to set undefined in your JSX (since false !== undefined for html attribute existence)
+    - Example: `<wc-menu-button open={this.state.isMenuOpen || undefined}></wc-menu-button>`
 
 ### Events
 
-- `open`
-  - Raised when the drawer is opened.
-  - Example: `drawer.addEventListener("open", handleOpen())`
-  - When subscribing in html listen for `onopen`
-    - Ex: `<wc-menu-button onopen="handleOpen()">`
-- `close`
-  -Raised when the drawer is closed.
-  - Example: `drawer.addEventListener("close", handleClose())`
-  - When subscribing in html listen for `onclose`
-    - Ex: `<wc-menu-button onclose="handleClose()">`
+- `opened`
+  - Raised when the menu button changes to the "open" state.
+  - Example: `menu.addEventListener("opened", handleOpen())`
+  - When subscribing in html listen for `onopened`
+    - Ex: `<wc-menu-button onopened="handleOpen()">`
+- `closed`
+  - Raised when the menu button changes to the not "open" state.
+  - Example: `menu.addEventListener("closed", handleClose())`
+  - When subscribing in html listen for `onclosed`
+    - Ex: `<wc-menu-button onclosed="handleClose()">`
 
 ### Styling
 
 You can style the wc-menu-button element as you would any regular element, in CSS. A list of supported CSS properties are below, along with the default values.
 
 ```css
+/* Menu button color is set with CSS variable */
+:root {
+  --wc-menu-button-color: #000000;
+}
+
+/* You only need to set the width, the height is calculated to maintain proportion */
 wc-menu-button {
-  background-color: #ffffff;
-  color: inherit;
-  width: 350px;
-  max-width: 75vw;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  width: 37px;
+}
+
+/* Set to `1.0` if you do not want any hover opacity effect */
+wc-menu-button:hover {
+  opacity: 0.75;
 }
 ```
-
-You can customize the overlay that appears to the right of the drawer (when it's open) by setting one of the following CSS variables.
-
-- `--wc-menu-button-overlay-transition`
-  - Sets the transition
-  - Default is `opacity 0.25s ease-in-out 0.25s`
-- `--wc-menu-button-overlay-opacity`
-  - Sets the opacity of the overlay
-  - Default is `0.7`
 
 ## Contribute
 
@@ -108,3 +103,9 @@ npm start
 ```
 
 This will start a live-server on port localhost:8080. Any changes you make to files in lib/ or any changes to example/index.html should get live reloaded.
+
+## Acknowledgements
+
+Thanks to [BrowserStack](https://www.browserstack.com/) for cross browser testing.
+
+[![BrowserStack](./browserstack-logo.png)](https://www.browserstack.com/)
