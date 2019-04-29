@@ -27,8 +27,8 @@ html body {
   --wc-menu-button-color: var(--primary-accent-color);
 }
 
-.big-icon {
-  --wc-menu-button-width: 60px;
+wc-menu-button.big-icon {
+  width: 60px;
 }
 
 .demo-color {

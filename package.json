@@ -1,6 +1,6 @@
 {
   "name": "wc-menu-button",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A simple, animating menu button built as a Web Component",
   "keywords": [
     "web component",

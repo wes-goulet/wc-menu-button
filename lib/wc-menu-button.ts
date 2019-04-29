@@ -46,9 +46,13 @@ export class WcMenuButton extends HTMLElement {
 
   set open(isOpen) {
     if (isOpen) {
-      this.setAttribute("open", "");
+      if (!this.hasAttribute("open")) {
+        this.setAttribute("open", "");
+      }
     } else {
-      this.removeAttribute("open");
+      if (this.hasAttribute("open")) {
+        this.removeAttribute("open");
+      }
     }
   }
 
