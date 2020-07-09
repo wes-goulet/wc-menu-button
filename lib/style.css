@@ -15,7 +15,7 @@
   -moz-transition: 0.5s ease-in-out;
   -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
-  cursor: default;
+  cursor: var(--wc-menu-button-cursor, default);
   transition: all 0.2s ease-in-out;
   -webkit-tap-highlight-color: transparent;
 }

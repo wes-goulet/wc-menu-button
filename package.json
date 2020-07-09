@@ -25,16 +25,16 @@
     "gzip-check": "npx gzip-size-cli dist/esm/wc-menu-button.min.js"
   },
   "devDependencies": {
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "^9.8.4",
     "live-server": "^1.2.1",
     "npm-run-all": "^4.1.5",
     "onchange": "^5.2.0",
-    "rollup": "^1.17.0",
-    "rollup-plugin-postcss": "^2.0.3",
+    "rollup": "^1.32.1",
+    "rollup-plugin-postcss": "^2.9.0",
     "rollup-plugin-string": "^2.0.2",
     "rollup-plugin-terser": "^4.0.4",
     "rollup-plugin-typescript2": "^0.21.2",
-    "typescript": "^3.5.3"
+    "typescript": "^3.9.6"
   },
   "repository": {
     "type": "git",
