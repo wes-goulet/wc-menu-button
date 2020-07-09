@@ -1,6 +1,6 @@
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/wc-menu-button) [![npm](https://img.shields.io/npm/v/wc-menu-button.svg)](https://npmjs.org/package/wc-menu-button)
 
-[![CircleCI](https://circleci.com/gh/wes566/wc-menu-button.svg?style=svg)](https://circleci.com/gh/wes566/wc-menu-button)
+[![dependencies Status](https://david-dm.org/wes566/wc-menu-button/status.svg)](https://david-dm.org/wes566/wc-menu-button)
 
 # wc-menu-button
 
@@ -80,7 +80,7 @@ You can style the wc-menu-button element as you would any regular element, in CS
 :root {
   /* Menu button color is set with CSS variable */
   --wc-menu-button-color: #000000;
-  
+
   /* The default mouse cursor is used by default */
   --wc-menu-button-cursor: default;
 }
