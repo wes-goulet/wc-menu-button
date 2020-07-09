@@ -77,9 +77,12 @@ This web component uses [HTML templates](https://caniuse.com/#feat=template), th
 You can style the wc-menu-button element as you would any regular element, in CSS. A list of supported CSS properties are below, along with the default values.
 
 ```css
-/* Menu button color is set with CSS variable */
 :root {
+  /* Menu button color is set with CSS variable */
   --wc-menu-button-color: #000000;
+  
+  /* The default mouse cursor is used by default */
+  --wc-menu-button-cursor: default;
 }
 
 /* You only need to set the width, the height is calculated to maintain proportion */
