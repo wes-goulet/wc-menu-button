@@ -33,7 +33,7 @@
     "rollup-plugin-postcss": "^2.9.0",
     "rollup-plugin-string": "^2.0.2",
     "rollup-plugin-terser": "^4.0.4",
-    "rollup-plugin-typescript2": "^0.21.2",
+    "rollup-plugin-typescript2": "^0.27.1",
     "typescript": "^3.9.6"
   },
   "repository": {
