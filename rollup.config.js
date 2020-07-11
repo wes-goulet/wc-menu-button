@@ -2,104 +2,76 @@ import autoprefixer from "autoprefixer";
 import typescript from "rollup-plugin-typescript2";
 import postcss from "rollup-plugin-postcss";
 import { terser } from "rollup-plugin-terser";
-import string from "rollup-plugin-string";
+import { string } from "rollup-plugin-string";
+
+import projectPackage from "./package.json";
+
+const componentName = projectPackage.name;
+const version = projectPackage.version;
+
+const iifeName = componentName
+  .split("-")
+  .map((x) => x.charAt(0).toUpperCase() + x.slice(1))
+  .join("");
+
+const footer = `/* @preserve v${version} */`;
 
 const esm = {
   plugins: [
     typescript({
-      useTsconfigDeclarationDir: false
+      useTsconfigDeclarationDir: false,
     }),
     postcss({
       plugins: [autoprefixer()],
       sourceMap: true,
       extensions: [".css"],
-      inject: false
+      inject: false,
     }),
     string({
-      include: "**/template.html"
-    })
+      include: "**/template.html",
+    }),
   ],
-  input: "lib/wc-menu-button.ts",
+  input: `lib/element.ts`,
   output: {
-    file: "dist/esm/wc-menu-button.js",
-    format: "esm"
-  }
+    file: `dist/esm/${componentName}.js`,
+    format: "esm",
+    footer,
+  },
 };
 
 const esmMin = {
+  ...esm,
   plugins: [
-    typescript({
-      useTsconfigDeclarationDir: false
-    }),
-    postcss({
-      plugins: [autoprefixer()],
-      sourceMap: false,
-      extensions: [".css"],
-      inject: false,
-      minimize: true
-    }),
-    string({
-      include: "**/template.html"
-    }),
+    ...esm.plugins,
     terser({
-      compress: { ecma: 6 }
-    })
+      compress: { ecma: 6 },
+    }),
   ],
-  input: "lib/wc-menu-button.ts",
   output: {
-    file: "dist/esm/wc-menu-button.min.js",
-    format: "esm"
-  }
+    file: `dist/esm/${componentName}.min.js`,
+    format: "esm",
+    footer,
+  },
 };
 
 const iife = {
-  plugins: [
-    typescript({
-      useTsconfigDeclarationDir: false
-    }),
-    postcss({
-      plugins: [autoprefixer()],
-      sourceMap: true,
-      extensions: [".css"],
-      inject: false
-    }),
-    string({
-      include: "**/template.html"
-    })
-  ],
-  input: "lib/wc-menu-button.ts",
+  ...esm,
   output: {
-    file: "dist/iife/wc-menu-button.js",
+    file: `dist/iife/${componentName}.js`,
     format: "iife",
-    name: "SideDrawer"
-  }
+    name: iifeName,
+    footer,
+  },
 };
 
 const iifeMin = {
-  plugins: [
-    typescript({
-      useTsconfigDeclarationDir: false
-    }),
-    postcss({
-      plugins: [autoprefixer()],
-      sourceMap: false,
-      extensions: [".css"],
-      inject: false,
-      minimize: true
-    }),
-    string({
-      include: "**/template.html"
-    }),
-    terser({
-      compress: { ecma: 6 }
-    })
-  ],
-  input: "lib/wc-menu-button.ts",
+  ...esmMin,
   output: {
-    file: "dist/iife/wc-menu-button.min.js",
+    file: `dist/iife/${componentName}.min.js`,
     format: "iife",
-    name: "SideDrawer"
-  }
+    name: iifeName,
+    footer,
+  },
 };
 
 export default [esm, esmMin, iife, iifeMin];
