@@ -4,6 +4,18 @@ import postcss from "rollup-plugin-postcss";
 import { terser } from "rollup-plugin-terser";
 import { string } from "rollup-plugin-string";
 
+import projectPackage from "./package.json";
+
+const componentName = projectPackage.name;
+const version = projectPackage.version;
+
+const iifeName = componentName
+  .split("-")
+  .map((x) => x.charAt(0).toUpperCase() + x.slice(1))
+  .join("");
+
+const footer = `/* @preserve v${version} */`;
+
 const esm = {
   plugins: [
     typescript({
@@ -19,10 +31,11 @@ const esm = {
       include: "**/template.html",
     }),
   ],
-  input: "lib/wc-menu-button.ts",
+  input: `lib/element.ts`,
   output: {
-    file: "dist/esm/wc-menu-button.js",
+    file: `dist/esm/${componentName}.js`,
     format: "esm",
+    footer,
   },
 };
 
@@ -35,26 +48,29 @@ const esmMin = {
     }),
   ],
   output: {
-    file: "dist/esm/wc-menu-button.min.js",
+    file: `dist/esm/${componentName}.min.js`,
     format: "esm",
+    footer,
   },
 };
 
 const iife = {
   ...esm,
   output: {
-    file: "dist/iife/wc-menu-button.js",
+    file: `dist/iife/${componentName}.js`,
     format: "iife",
-    name: "WcMenuButton",
+    name: iifeName,
+    footer,
   },
 };
 
 const iifeMin = {
   ...esmMin,
   output: {
-    file: "dist/iife/wc-menu-button.min.js",
+    file: `dist/iife/${componentName}.min.js`,
     format: "iife",
-    name: "WcMenuButton",
+    name: iifeName,
+    footer,
   },
 };
 
