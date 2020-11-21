@@ -19,11 +19,13 @@ In the `<head>` of your index.html put a script tag like this:
 ```html
 <script
   type="module"
-  src="https://unpkg.com/wc-menu-button/dist/esm/wc-menu-button.min.js"
+  src="https://unpkg.com/wc-menu-button/wc-menu-button.js"
 ></script>
+
+<!-- Or use the minified version -->
 <script
-  nomodule
-  src="https://unpkg.com/wc-menu-button/dist/iife/wc-menu-button.min.js"
+  type="module"
+  src="https://unpkg.com/wc-menu-button/wc-menu-button.min.js"
 ></script>
 ```
 
@@ -98,12 +100,13 @@ wc-menu-button:hover {
 
 This project is built with standard HTML/CSS/TS, no frameworks or special web-component compilers here (for maximum simplicity and minimum size). If you want to learn more about writing custom elements see [MDN](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) or [this web fundamentals page](https://developers.google.com/web/fundamentals/web-components/).
 
+The source for this web component is contained in [wc-menu-button.js](wc-menu-button.js) and example usage is in [index.html](index.html). To debug/run the example you can just open index.html in a browser. For a hot-reload developer experience try [using live server in vscode](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
+
+You will need the dev dependencies of this project installed to run the post-commit hooks.
+
 ```bash
 npm install
-npm start
 ```
-
-This will start a live-server on port localhost:8080. Any changes you make to files in lib/ or any changes to example/index.html should get live reloaded.
 
 ## Acknowledgements
 
