@@ -1,49 +1,59 @@
 {
   "name": "wc-menu-button",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "A simple, animating menu button built as a Web Component",
   "keywords": [
     "web component",
     "hamburger",
     "menu",
     "animating",
-    "web-component"
+    "web-component",
+    "custom-element"
   ],
-  "module": "dist/esm/wc-menu-button.js",
-  "main": "dist/esm/wc-menu-button.js",
-  "source": "lib/wc-menu-button.ts",
-  "types": "dist/esm/wc-menu-button.d.ts",
-  "scripts": {
-    "build": "rollup -c && cp ./dist/esm/wc-menu-button.js ./example/wc-menu-button.esm.js && cp ./dist/iife/wc-menu-button.js ./example/wc-menu-button.iife.js",
-    "rollup-watch": "rollup -c --watch",
-    "serve": "live-server ./example",
-    "copy-watch-esm": "onchange -v \"dist/esm/wc-menu-button.js\" -- cp ./dist/esm/wc-menu-button.js ./example/wc-menu-button.esm.js",
-    "copy-watch-iife": "onchange -v \"dist/iife/wc-menu-button.js\" -- cp ./dist/iife/wc-menu-button.js ./example/wc-menu-button.iife.js",
-    "start": "npm-run-all --parallel rollup-watch serve copy-watch-esm copy-watch-iife",
-    "clean": "rm -rf dist",
-    "prepare": "npm run build",
-    "gzip-check": "npx gzip-size-cli dist/esm/wc-menu-button.min.js"
-  },
-  "devDependencies": {
-    "autoprefixer": "^9.8.4",
-    "live-server": "^1.2.1",
-    "npm-run-all": "^4.1.5",
-    "onchange": "^7.0.2",
-    "rollup": "^2.21.0",
-    "rollup-plugin-postcss": "^3.1.2",
-    "rollup-plugin-string": "^3.0.0",
-    "rollup-plugin-terser": "^7.0.0",
-    "rollup-plugin-typescript2": "^0.27.1",
-    "typescript": "^3.9.6"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/wes566/wc-menu-button"
   },
-  "author": "Wes Peter",
+  "author": "wes@goulet.dev",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/wes566/wc-menu-button"
   },
-  "homepage": "https://github.com/wes566/wc-menu-button"
+  "homepage": "https://github.com/wes566/wc-menu-button",
+  "module": "wc-menu-button.js",
+  "main": "wc-menu-button.js",
+  "source": "wc-menu-button.js",
+  "types": "wc-menu-button.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "tsc && npm run minify",
+    "minify": "terser wc-menu-button.js -o wc-menu-button.min.js -c -m",
+    "lint": "npm run lint:formatting && npm run lint:size",
+    "lint:formatting": "prettier --check .",
+    "lint:size": "bundlesize",
+    "fix:formatting": "prettier --write ."
+  },
+  "devDependencies": {
+    "bundlesize": "^0.18.0",
+    "prettier": "^2.1.2",
+    "terser": "^5.3.5",
+    "typescript": "^4.0.3"
+  },
+  "files": [
+    "wc-menu-button.js",
+    "wc-menu-button.min.js",
+    "wc-menu-button.d.ts"
+  ],
+  "exports": {
+    ".": {
+      "import": "./wc-menu-button.js",
+      "default": "./wc-menu-button.js"
+    }
+  },
+  "bundlesize": [
+    {
+      "path": "./wc-menu-button.min.js",
+      "maxSize": "1.2 KB"
+    }
+  ]
 }
