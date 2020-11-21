@@ -46,7 +46,8 @@
   ],
   "exports": {
     ".": {
-      "import": "./wc-menu-button.js"
+      "import": "./wc-menu-button.js",
+      "default": "./wc-menu-button.js"
     }
   },
   "bundlesize": [
