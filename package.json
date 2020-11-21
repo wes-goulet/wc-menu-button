@@ -47,7 +47,7 @@
   "bundlesize": [
     {
       "path": "./wc-menu-button.min.js",
-      "maxSize": "2 kB"
+      "maxSize": "1.2 KB"
     }
   ]
 }
