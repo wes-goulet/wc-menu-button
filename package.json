@@ -44,6 +44,11 @@
     "wc-menu-button.min.js",
     "wc-menu-button.d.ts"
   ],
+  "exports": {
+    ".": {
+      "import": "./wc-menu-button.js"
+    }
+  },
   "bundlesize": [
     {
       "path": "./wc-menu-button.min.js",
