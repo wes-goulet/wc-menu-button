@@ -1,4 +1,4 @@
-![Build](https://github.com/wes566/wc-menu-button/workflows/Build/badge.svg) [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/wc-menu-button) [![npm](https://img.shields.io/npm/v/wc-menu-button.svg)](https://npmjs.org/package/wc-menu-button) [![Dependencies Status](https://david-dm.org/wes566/wc-menu-button/status.svg)](https://david-dm.org/wes566/wc-menu-button)
+![Build](https://github.com/wes566/wc-menu-button/workflows/Build/badge.svg) [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/wc-menu-button) [![npm](https://img.shields.io/npm/v/wc-menu-button.svg)](https://npmjs.org/package/wc-menu-button)
 
 # wc-menu-button
 
