@@ -35,9 +35,9 @@
   },
   "devDependencies": {
     "bundlesize": "^0.18.0",
-    "prettier": "^2.1.2",
-    "terser": "^5.3.5",
-    "typescript": "^4.0.3"
+    "prettier": "^2.5.1",
+    "terser": "^5.11.0",
+    "typescript": "^4.5.5"
   },
   "files": [
     "wc-menu-button.js",
@@ -55,5 +55,11 @@
       "path": "./wc-menu-button.min.js",
       "maxSize": "1.2 KB"
     }
-  ]
+  ],
+  "engines": {
+    "node": ">=14.19.0"
+  },
+  "volta": {
+    "node": "16.14.0"
+  }
 }
