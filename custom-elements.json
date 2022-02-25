@@ -8,35 +8,12 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "A simple, animating menu button custom element",
           "name": "WcMenuButton",
           "members": [
             {
-              "kind": "method",
-              "name": "upgradeProperty",
-              "parameters": [
-                {
-                  "name": "prop",
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ]
-            },
-            {
               "kind": "field",
               "name": "open"
-            },
-            {
-              "kind": "field",
-              "name": "handleMenuButtonClick"
-            },
-            {
-              "kind": "field",
-              "name": "_menuButton",
-              "type": {
-                "text": "HTMLElement | null"
-              }
             }
           ],
           "events": [
