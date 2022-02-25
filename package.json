@@ -59,10 +59,10 @@
     }
   ],
   "engines": {
-    "node": ">=14.19.0"
+    "node": ">=16.14.0"
   },
   "volta": {
-    "node": "14.19.0"
+    "node": "16.14.0"
   },
   "customElements": "custom-elements.json"
 }
