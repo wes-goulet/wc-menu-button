@@ -110,6 +110,9 @@ const template = `
 const tmpl = document.createElement("template");
 tmpl.innerHTML = `<style>${style}</style>${template}`;
 
+/**
+ * A simple, animating menu button custom element
+ */
 export class WcMenuButton extends HTMLElement {
   constructor() {
     super();
@@ -117,7 +120,10 @@ export class WcMenuButton extends HTMLElement {
     const shadowRoot = this.attachShadow({ mode: "open" });
     shadowRoot.appendChild(tmpl.content.cloneNode(true));
 
-    /** @type {HTMLElement | null} */
+    /**
+     * @internal
+     * @type {HTMLElement | null}
+     */
     this._menuButton = shadowRoot.getElementById("m");
   }
 
@@ -133,6 +139,7 @@ export class WcMenuButton extends HTMLElement {
   /**
    * @param {string} prop
    *
+   * @internal
    * @memberOf WcMenuButton
    */
   upgradeProperty(prop) {
@@ -164,13 +171,13 @@ export class WcMenuButton extends HTMLElement {
   }
 
   /**
-   * @param {string} _name
-   * @param {any} _oldValue
-   * @param {any} _newValue
+   * @param {string} name
+   * @param {unknown} _oldValue
+   * @param {unknown} _newValue
    * @memberof WcMenuButton
    */
-  attributeChangedCallback(_name, _oldValue, _newValue) {
-    if (_name === "open") {
+  attributeChangedCallback(name, _oldValue, _newValue) {
+    if (name === "open") {
       if (!this.open) {
         this.dispatchEvent(
           new CustomEvent("closed", {
@@ -187,6 +194,9 @@ export class WcMenuButton extends HTMLElement {
     }
   }
 
+  /**
+   * @internal
+   */
   handleMenuButtonClick = () => {
     this.open = !this.open;
   };

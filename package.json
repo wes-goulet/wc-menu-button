@@ -1,6 +1,6 @@
 {
   "name": "wc-menu-button",
-  "version": "3.1.1",
+  "version": "4.0.0",
   "description": "A simple, animating menu button built as a Web Component",
   "keywords": [
     "web component",
@@ -59,10 +59,10 @@
     }
   ],
   "engines": {
-    "node": ">=14.19.0"
+    "node": ">=16.14.0"
   },
   "volta": {
-    "node": "14.19.0"
+    "node": "16.14.0"
   },
   "customElements": "custom-elements.json"
 }
