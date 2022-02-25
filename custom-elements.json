@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "wc-menu-button.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WcMenuButton",
+          "members": [
+            {
+              "kind": "method",
+              "name": "upgradeProperty",
+              "parameters": [
+                {
+                  "name": "prop",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "open"
+            },
+            {
+              "kind": "field",
+              "name": "handleMenuButtonClick"
+            },
+            {
+              "kind": "field",
+              "name": "_menuButton",
+              "type": {
+                "text": "HTMLElement | null"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "closed",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "opened",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "open"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "wc-menu-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WcMenuButton",
+          "declaration": {
+            "name": "WcMenuButton",
+            "module": "wc-menu-button.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wc-menu-button",
+          "declaration": {
+            "name": "WcMenuButton",
+            "module": "wc-menu-button.js"
+          }
+        }
+      ]
+    }
+  ]
+}

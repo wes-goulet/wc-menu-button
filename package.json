@@ -26,14 +26,16 @@
   "types": "wc-menu-button.d.ts",
   "scripts": {
     "prepare": "npm run build",
-    "build": "tsc && npm run minify",
+    "build": "tsc && npm run minify && npm run manifest",
     "minify": "terser wc-menu-button.js -o wc-menu-button.min.js -c -m",
+    "manifest": "custom-elements-manifest analyze --globs 'wc-menu-button.js'",
     "lint": "npm run lint:formatting && npm run lint:size",
     "lint:formatting": "prettier --check .",
     "lint:size": "bundlesize",
     "fix:formatting": "prettier --write ."
   },
   "devDependencies": {
+    "@custom-elements-manifest/analyzer": "^0.5.7",
     "bundlesize": "^0.18.0",
     "prettier": "^2.5.1",
     "terser": "^5.11.0",
@@ -60,6 +62,7 @@
     "node": ">=14.19.0"
   },
   "volta": {
-    "node": "16.14.0"
-  }
+    "node": "14.19.0"
+  },
+  "customElements": "custom-elements.json"
 }
