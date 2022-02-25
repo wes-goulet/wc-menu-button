@@ -62,7 +62,7 @@
     "node": ">=14.19.0"
   },
   "volta": {
-    "node": "16.14.0"
+    "node": "14.19.0"
   },
   "customElements": "custom-elements.json"
 }
