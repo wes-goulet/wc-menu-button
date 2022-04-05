@@ -12,4 +12,3 @@ updates:
     commit-message:
       prefix: "fix"
       prefix-development: "build"
-      include_scope: false
