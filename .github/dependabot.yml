@@ -10,6 +10,6 @@ updates:
     schedule:
       interval: "weekly"
     commit_message:
-      prefix: "fix",
+      prefix: "fix"
       prefix-development: "build"
       include_scope: false
