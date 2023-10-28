@@ -5,18 +5,14 @@ const style = `
   width: 37px;
 }
 
-#m {
+button {
+  all: unset;
+
   margin: 0;
   width: inherit;
   position: relative;
   display: inline-block;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: 0.5s ease-in-out;
-  -moz-transition: 0.5s ease-in-out;
-  -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   cursor: var(--wc-menu-button-cursor, default);
   transition: all 0.2s ease-in-out;
@@ -24,7 +20,7 @@ const style = `
 }
 
 /* this trick makes the height 75% of the width (4:3 ratio) */
-#m:after {
+button:after {
   padding-top: 75%;
   display: block;
   content: "";
@@ -36,7 +32,13 @@ const style = `
   }
 }
 
-#m span {
+:focus {
+    outline: 2px solid color-mix(in srgb, var(--wc-menu-button-color, #000000) 50%, transparent);
+    outline-offset: 5px;
+    border-radius: 5px;
+}
+
+button span {
   display: block;
   position: absolute;
   height: 20%;
@@ -45,50 +47,38 @@ const style = `
   border-radius: 10%;
   opacity: 1;
   left: 0;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: 0.25s ease-in-out;
-  -moz-transition: 0.25s ease-in-out;
-  -o-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
 }
 
-#m span:nth-child(1) {
+button span:nth-child(1) {
   top: 0%;
 }
 
-#m span:nth-child(2),
-#m span:nth-child(3) {
+button span:nth-child(2),
+button span:nth-child(3) {
   top: 40%;
 }
 
-#m span:nth-child(4) {
+button span:nth-child(4) {
   top: 80%;
 }
 
-:host([open]) #m span:nth-child(1) {
+:host([open]) button span:nth-child(1) {
   top: 40%;
   width: 0%;
   left: 50%;
 }
 
-:host([open]) #m span:nth-child(2) {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
+:host([open]) button span:nth-child(2) {
   transform: rotate(45deg);
 }
 
-:host([open]) #m span:nth-child(3) {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
+:host([open]) button span:nth-child(3) {
   transform: rotate(-45deg);
 }
 
-:host([open]) #m span:nth-child(4) {
+:host([open]) button span:nth-child(4) {
   top: 40%;
   width: 0%;
   left: 50%;
@@ -96,12 +86,12 @@ const style = `
 `;
 
 const template = `
-<div id="m">
+<button>
   <span></span>
   <span></span>
   <span></span>
   <span></span>
-</div>
+</button>
 `;
 
 // using a template so it only needs to be parsed once, whereas setting
@@ -124,7 +114,7 @@ export class WcMenuButton extends HTMLElement {
      * @internal
      * @type {HTMLElement | null}
      */
-    this._menuButton = shadowRoot.getElementById("m");
+    this._menuButton = shadowRoot.querySelector("button");
   }
 
   connectedCallback() {
@@ -182,13 +172,13 @@ export class WcMenuButton extends HTMLElement {
         this.dispatchEvent(
           new CustomEvent("closed", {
             bubbles: true,
-          })
+          }),
         );
       } else {
         this.dispatchEvent(
           new CustomEvent("opened", {
             bubbles: true,
-          })
+          }),
         );
       }
     }
